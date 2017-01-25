@@ -25,7 +25,11 @@ while True:
 	if (GPIO.input(knobPinOne)==False):	#if knob is turned
 		knobValue= knobValue+1;			#this is from the second site
 		#code to update speed of drum beat.
-	if (GPIO.input(buttonAPin)==False):	#if the button is pressed
+	if (GPIO.input(buttonAPin)==False and GPIO.input(buttonBPin)==False):
+		if (buttonAStatus==0 and buttonBStatus==0):
+		#code for sounds
+		#i feel like no else is needed here? or maybe we need a third status variable?
+	else if (GPIO.input(buttonAPin)==False):	#if the button is pressed
 		if(buttonAStatus==0):
 		print 'Button A pressed (on)';
 		#code to play the sound
