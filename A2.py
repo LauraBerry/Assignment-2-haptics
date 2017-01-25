@@ -6,10 +6,13 @@ import time;
 GPIO.VERSION;
 GPIO.setmode(GPIO.BCM);
 GPIO.setwarnings(False);
+#pins for buttons
 GPIO.setup(10,GPIO.IN);
 GPIO.setup(11,GPIO.IN);
+#pins for knob
 GPIO.setup(12,GPIO.IN);
 GPIO.setup(13,GPIO.OUT);
+#pin for speaker(?)
 GPIO.setup(17,GPIO.OUT);
 buttonAStatus =0;
 buttonBStatus =0;
@@ -19,10 +22,10 @@ knobPinOne = 12;
 knobPinTwo = 13;
 knobValue = 0;
 while True:
-	if (GPIO.input(knobPinOne)==False):
-		knobValue= knobValue+1;
+	if (GPIO.input(knobPinOne)==False):	#if knob is turned
+		knobValue= knobValue+1;			#this is from the second site
 		#code to update speed of drum beat.
-	if (GPIO.input(buttonAPin)==False):
+	if (GPIO.input(buttonAPin)==False):	#if the button is pressed
 		if(buttonAStatus==0):
 		print 'Button A pressed (on)';
 		#code to play the sound
@@ -31,7 +34,7 @@ while True:
 		print 'Button A pressed again (off)';
 		#code to turn off sound
 		buttonAStatus=0;
-	else if (GPIO.input(buttonBPin) == False):
+	else if (GPIO.input(buttonBPin) == False):	#if the second button is pressed
 		if (buttonBStatus==0):
 		print 'Button B pressed (On)';
 		#code to play the sound 
