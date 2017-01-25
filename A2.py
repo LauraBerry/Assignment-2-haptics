@@ -8,17 +8,17 @@ GPIO.VERSION;
 GPIO.setmode(GPIO.BCM);
 GPIO.setwarnings(False);
 #pins for buttons
-GPIO.setup(10,GPIO.IN);
-GPIO.setup(11,GPIO.IN);
+#GPIO.setup(10,GPIO.IN);
+#GPIO.setup(11,GPIO.IN);
 #pins for knob
 GPIO.setup(12,GPIO.IN);
 GPIO.setup(13,GPIO.OUT);
 #pin for speaker(?)
-GPIO.setup(17,GPIO.OUT);
+#GPIO.setup(17,GPIO.OUT);
 buttonAStatus =0;
 buttonBStatus =0;
-buttonAPin=10;
-buttonBPin=11;
+#buttonAPin=10;
+#buttonBPin=11;
 knobPinOne = 12;
 knobPinTwo = 13;
 knobValue = 0;
