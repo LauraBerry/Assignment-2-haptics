@@ -4,9 +4,15 @@
 
 import RPi.GPIO as GPIO;
 import time;
+import pyaudio; 
+import wave;
 GPIO.VERSION;
 GPIO.setmode(GPIO.BCM);
 GPIO.setwarnings(False);
+drums = wave.open("ambi-115bpm-1a.wav");
+p=pyaudio.PyAudio();
+stream = p.open(format = p.get_format_from_width(drums.getsampwidth()), channels= drums.getnchannels(), rate= drums.getframerate(), output = True);
+data = drums.readframes(chunk);
 #pins for buttons
 #GPIO.setup(10,GPIO.IN);
 #GPIO.setup(11,GPIO.IN);
@@ -23,28 +29,6 @@ knobPinOne = 12;
 knobPinTwo = 13;
 knobValue = 0;
 while True:
-	while (GPIO.input(knobPinOne)==False):	#if knob is turned
-		knobValue= knobValue+1;			#this is from the second site
-#		#code to update speed of drum beat.
-#	if (GPIO.input(buttonAPin)==False and GPIO.input(buttonBPin)==False):
-#		if (buttonAStatus==0 and buttonBStatus==0):
-#		#code for sounds
-#		#i feel like no else is needed here? or maybe we need a third status variable?
-#	else if (GPIO.input(buttonAPin)==False):	#if the button is pressed
-#		if(buttonAStatus==0):
-#		print 'Button A pressed (on)';
-#		#code to play the sound
-#		buttonAStatus=1;
-#		else
-#		print 'Button A pressed again (off)';
-#		#code to turn off sound
-#		buttonAStatus=0;
-#	else if (GPIO.input(buttonBPin) == False):	#if the second button is pressed
-#		if (buttonBStatus==0):
-#		print 'Button B pressed (On)';
-#		#code to play the sound 
-#		buttonBStatus=1;
-#		else:
-#		print 'Button B pressed again (off)';
-#		#code to turn off sound
-#		buttonBStatus=0;
+	readADC();
+	stream.write(data);
+	data = drums.readframes(chunk);
