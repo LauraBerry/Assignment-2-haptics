@@ -1,5 +1,6 @@
 #http://theatticlight.net/posts/Reading-a-Rotary-Encoder-from-a-Raspberry-Pi/
 #http://www.allaboutcircuits.com/projects/building-raspberry-pi-controllers-part-5-reading-analog-data-with-an-rpi/
+#http://www.hertaville.com/interfacing-an-spi-adc-mcp3008-chip-to-the-raspberry-pi-using-c.html
 
 import RPi.GPIO as GPIO;
 import time;
@@ -22,7 +23,7 @@ knobPinOne = 12;
 knobPinTwo = 13;
 knobValue = 0;
 while True:
-	if (GPIO.input(knobPinOne)==False):	#if knob is turned
+	while (GPIO.input(knobPinOne)==False):	#if knob is turned
 		knobValue= knobValue+1;			#this is from the second site
 		#code to update speed of drum beat.
 	if (GPIO.input(buttonAPin)==False and GPIO.input(buttonBPin)==False):
