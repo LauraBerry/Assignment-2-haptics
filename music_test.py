@@ -1,3 +1,6 @@
+#https://www.raspberrypi.org/learning/gpio-music-box/worksheet/
+#http://raspberrypi.stackexchange.com/questions/7088/playing-audio-files-with-python
+
 import RPi.GPIO as GPIO;
 import time;
 import pyaudio; 
