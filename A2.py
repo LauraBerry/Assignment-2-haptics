@@ -1,6 +1,8 @@
 #http://theatticlight.net/posts/Reading-a-Rotary-Encoder-from-a-Raspberry-Pi/
 #http://www.allaboutcircuits.com/projects/building-raspberry-pi-controllers-part-5-reading-analog-data-with-an-rpi/
 #http://www.hertaville.com/interfacing-an-spi-adc-mcp3008-chip-to-the-raspberry-pi-using-c.html
+#https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=40515
+
 
 import RPi.GPIO as GPIO;
 import time;
